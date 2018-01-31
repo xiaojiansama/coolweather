@@ -1,0 +1,12 @@
+<litepal>
+    <dbname value="cool_weather" />
+
+    <vision value="1"/>
+
+    <list>
+        <mapping class="com.example.sama.coolweather.db.Province"/>
+        <mapping class="com.example.sama.coolweather.db.City"/>
+        <mapping class="com.example.sama.coolweather.db.County"/>
+    </list>
+
+</litepal>
