@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.sama.coolweather.gson.Forecast;
 import com.example.sama.coolweather.gson.Weather;
+import com.example.sama.coolweather.service.AutoUpdateService;
 import com.example.sama.coolweather.util.HttpUtil;
 import com.example.sama.coolweather.util.Utility;
 
@@ -161,6 +162,7 @@ public class WeatherActivity extends AppCompatActivity {
     private void showWeatherInfo(Weather weather) {
         String cityName = weather.basic.cityName;
         String updateTime = weather.basic.update.updateTime.split(" ")[1];
+        updateTime+="更新";
         String degree = weather.now.tmp + "℃";
         String weatherInfo = weather.now.more.info;
         titleCity.setText(cityName);
@@ -191,6 +193,8 @@ public class WeatherActivity extends AppCompatActivity {
         carWashText.setText(carWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
     private void loadBingPic(){
